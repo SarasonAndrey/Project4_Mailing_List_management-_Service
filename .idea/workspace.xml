@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0c8095a9-5ac4-4908-a33f-d41a8568bc61" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.flake8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Project4_Mailing_List_management _Service.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailing/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailing/management/commands/add_user_to_managers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailing/management/commands/create_managers_group.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailing/management/commands/send_active_mailings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailing/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailing/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/attempt_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/client_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/client_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/client_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/client_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/mailing_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/mailing_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/mailing_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/mailing_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/message_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/message_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/message_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/message_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/send_mailing_confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mailing/statistics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="32uCdbmL7LPkmAgiW0DTjnUpzBj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.run.executor": "Run",
+    "Python.run1.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/ThinkPad/PycharmProjects/Project4_Mailing_List_management _Service"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ThinkPad\PycharmProjects\Project4_Mailing_List_management _Service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ThinkPad\PycharmProjects\Project4_Mailing_List_management _Service\mailing\management" />
+      <recent name="C:\Users\ThinkPad\PycharmProjects\Project4_Mailing_List_management _Service\templates" />
+      <recent name="C:\Users\ThinkPad\PycharmProjects\Project4_Mailing_List_management _Service\templates\mailing" />
+      <recent name="C:\Users\ThinkPad\PycharmProjects\Project4_Mailing_List_management _Service\mailing\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="run1" type="PythonConfigurationType" factoryName="Python">
+      <module name="Project4_Mailing_List_management _Service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (Project4_Mailing_List_management _Service)" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\ThinkPad\PycharmProjects\Project4_Mailing_List_management _Service" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-dfff61a61320-9cdd278e9d02-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.25410.159" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c8095a9-5ac4-4908-a33f-d41a8568bc61" name="Changes" comment="" />
+      <created>1758261158983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758261158983</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mailing/management/commands/send_active_mailings.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

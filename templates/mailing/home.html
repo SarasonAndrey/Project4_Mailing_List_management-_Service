@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная - Сервис рассылок{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 mb-4">
+            <h1 class="mb-4">Добро пожаловать в сервис рассылок!</h1>
+
+            {% if user.is_authenticated %}
+                <!-- Карточки статистики с пастельными тонами -->
+                <div class="d-flex flex-column gap-3">
+                    <!-- Карточка 1: Всего рассылок -->
+                    <div class="card border-0 shadow-sm" style="background-color: #F0F4F8;"> <!-- Пастельно-голубой -->
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">Всего ваших рассылок</h5>
+                            <p class="display-6 text-primary">{{ total_mailings }}</p> <!-- Синий для акцента -->
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: Активных рассылок -->
+                    <div class="card border-0 shadow-sm" style="background-color: #E8F5E9;"> <!-- Пастельно-зеленый -->
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">Ваших активных рассылок</h5>
+                            <p class="display-6 text-success">{{ active_mailings }}</p> <!-- Зеленый для акцента -->
+                        </div>
+                    </div>
+
+                    <!-- Карточка 3: Уникальных клиентов -->
+                    <div class="card border-0 shadow-sm" style="background-color: #FFF3E0;"> <!-- Пастельно-оранжевый -->
+                        <div class="card-body">
+                            <h5 class="card-title text-muted">Уникальных клиентов (общее)</h5>
+                            <p class="display-6 text-warning">{{ unique_clients }}</p> <!-- Оранжевый для акцента -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка "Перейти к моим рассылкам" слева под карточками -->
+                <div class="mt-4 text-start">
+                    <a href="{% url 'mailing:mailing_list' %}" class="btn btn-primary">Перейти к моим рассылкам</a>
+                </div>
+
+            {% else %}
+                <p>Для работы с сервисом <a href="{% url 'users:login' %}">войдите</a> или <a href="{% url 'users:register' %}">зарегистрируйтесь</a>.</p>
+            {% endif %}
+        </div>
+
+        <!-- Правая колонка: Изображение (50% ширины на средних и больших экранах) -->
+        <div class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
