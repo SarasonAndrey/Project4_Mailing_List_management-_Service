@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Рассылки{% endblock %}
+{% block content %}
+<h1>Список рассылок</h1>
+<a href="{% url 'mailing:mailing_create' %}" class="btn btn-primary mb-3">Добавить рассылку</a>
+{% if mailings %}
+    <ul class="list-group">
+        {% for mailing in mailings %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'mailing:mailing_detail' mailing.pk %}">Рассылка {{ mailing.pk }}: {{ mailing.message.subject }}</a>
+                <span class="badge bg-{% if mailing.status == 'created' %}secondary{% elif mailing.status == 'running' %}success{% elif mailing.status == 'completed' %}primary{% endif %}">{{ mailing.get_status_display }}</span>
+                <div>
+                    <a href="{% url 'mailing:mailing_update' mailing.pk %}" class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                    <a href="{% url 'mailing:mailing_delete' mailing.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Рассылки не найдены.</p>
+{% endif %}
+{% endblock %}
