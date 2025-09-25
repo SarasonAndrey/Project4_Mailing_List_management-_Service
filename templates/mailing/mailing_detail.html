@@ -14,7 +14,8 @@
     {% endfor %}
 </ul>
 
-{% if mailing.owner == user or user.has_perm('mailing.set_mailing_status') %}
+
+{% if mailing.owner == user or perms.mailing.set_mailing_status %}
     {% if mailing.status == 'created' or mailing.status == 'running' %}
          <a href="{% url 'mailing:send_mailing' mailing.pk %}" class="btn btn-warning">Отправить рассылку</a>
     {% endif %}

@@ -1,10 +1,11 @@
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.cache import cache
 from django.db.models import Count, Q
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -15,7 +16,34 @@ from django.views.generic import (
 
 from .forms import ClientForm, MailingForm, MessageForm
 from .models import Client, Mailing, MailingAttempt, Message
-from .services import send_mailing
+
+from .tasks import send_single_mailing
+
+
+@login_required
+def send_mailing_view(request, mailing_id):
+    """
+    FBV для отправки рассылки.
+    Проверяет права, обрабатывает GET (показ подтверждения) и POST (запуск задачи).
+    """
+    mailing = get_object_or_404(Mailing, id=mailing_id, owner=request.user)
+
+    if not (mailing.owner == request.user or request.user.has_perm("mailing.set_mailing_status")):
+        messages.error(request, "У вас нет прав для отправки этой рассылки.")
+        return redirect("mailing:mailing_list")
+
+    if request.method == "POST":
+
+        task = send_single_mailing.delay(mailing_id)
+        messages.success(
+            request,
+            f"Задача на отправку рассылки {mailing_id} поставлена в очередь. ID задачи: {task.id}"
+        )
+
+        return redirect('mailing:mailing_detail', pk=mailing_id)
+
+
+    return render(request, "mailing/send_mailing_confirm.html", {"mailing": mailing})
 
 
 def home(request):
@@ -144,7 +172,6 @@ class MailingListView(LoginRequiredMixin, ListView):  # Для всех или �
 
     def get_queryset(self):
         user = self.request.user
-
         if user.has_perm("mailing.view_mailing_list"):
 
             return Mailing.objects.all()
@@ -197,6 +224,7 @@ class MailingDeleteView(LoginRequiredMixin, OwnerRequiredMixin, DeleteView):
     login_url = "users:login"
 
 
+# --- Список попыток (MailingAttempt) ---
 class MailingAttemptListView(LoginRequiredMixin, ListView):
     model = MailingAttempt
     template_name = "mailing/attempt_list.html"
@@ -230,33 +258,7 @@ class MailingStatisticsView(LoginRequiredMixin, ListView):
 
         queryset = queryset.annotate(
             total_attempts=Count("mailingattempt"),
-            successful_attempts=Count(
-                "mailingattempt", filter=Q(mailingattempt__status="success")
-            ),
-            failed_attempts=Count(
-                "mailingattempt", filter=Q(mailingattempt__status="failed")
-            ),
+            successful_attempts=Count("mailingattempt", filter=Q(mailingattempt__status="success")),
+            failed_attempts=Count("mailingattempt", filter=Q(mailingattempt__status="failed"))
         )
         return queryset
-
-
-@login_required
-def send_mailing_view(request, mailing_id):
-    mailing = get_object_or_404(Mailing, id=mailing_id, owner=request.user)
-
-    if not (
-        mailing.owner == request.user
-        or request.user.has_perm("mailing.set_mailing_status")
-    ):
-        messages.error(request, "У вас нет прав для отправки этой рассылки.")
-        return redirect("mailing:mailing_list")
-
-    if request.method == "POST":
-        success = send_mailing(mailing_id)
-        if success:
-            messages.success(request, f"Рассылка {mailing_id} успешно отправлена.")
-        else:
-            messages.error(request, f"Ошибка при отправке рассылки {mailing_id}.")
-        return redirect("mailing:mailing_detail", pk=mailing_id)
-
-    return render(request, "mailing/send_mailing_confirm.html", {"mailing": mailing})

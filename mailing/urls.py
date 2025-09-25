@@ -51,5 +51,5 @@ urlpatterns = [
     ),
     path("attempts/", views.MailingAttemptListView.as_view(), name="attempt_list"),
     path("statistics/", views.MailingStatisticsView.as_view(), name="statistics"),
-    path("mailings/<int:mailing_id>/send/", views.send_mailing, name="send_mailing"),
+    path('mailings/<int:mailing_id>/send/', views.send_mailing_view, name='send_mailing'),
 ]
